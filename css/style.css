@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+}
+
+:root {
+  /* Brand Colors */
+  --background: #F2F1ED;       
+  --text-primary: #00100B;
+  --text-secondary: #F7F7F9;   
+
+  --accent-pink: #DC3989;
+  --accent-blue: #2579AF;
+  --accent-aqua: #A4CBC6;
+
+  --soft-blue: #D0EBF6;
+  --soft-pink: #F8DFE3;
+  --blue-dark: #3D5A80;
+}
+
+

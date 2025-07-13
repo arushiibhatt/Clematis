@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Clematis</title>
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Add other head elements as needed -->
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch('components/navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parent = this.closest('.dropdown');
+                parent.classList.toggle('open');
+                document.querySelectorAll('.dropdown').forEach(function(drop) {
+                    if (drop !== parent) drop.classList.remove('open');
+                });
+            });
+        });
+    });
+  </script>
+</body>
+</html>

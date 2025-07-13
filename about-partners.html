@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Partners | Clematis</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <main>
+    <!-- Page-specific content goes here -->
+  </main>
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-placeholder').innerHTML = html;
+      });
+    fetch('components/footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+</body>
+</html>
