@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Inter';
   src: url('../assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
-  font-weight: 400;
+  font-weight: 100 900;
   font-style: normal;
 }
 
@@ -29,7 +29,7 @@
 @font-face {
   font-family: 'Sora';
   src: url('../assets/fonts/Sora-VariableFont_wght.ttf') format('truetype');
-  font-weight: 400;
+  font-weight: 100 1000;
   font-style: normal;
 }
 
@@ -41,6 +41,10 @@ font-body {
 
 font-heading {
   font-family: 'DMSerifDisplay', serif;
+}
+
+font-heading {
+  font-family: 'DMSerifDisplay-Italic', serif;
 }
 
 font-accent {

@@ -16,6 +16,38 @@ a {
   color: #1e2b2e;
 }
 
+/* Buttons */
+.button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #00100B;
+  background-color: var(--accent-aqua);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.button a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transform: scale(1.07);
+  color: var(--text-secondary)
+}
+
+.button:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -74,7 +106,7 @@ a {
 .nav-title {
   font-family: 'Sora', sans-serif;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-decoration: none;

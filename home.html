@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <!-- Add other head elements as needed -->
+  <link rel="stylesheet" href="css/pages/home.css"/>
 </head>
 <body>
   <div id="navbar-placeholder"></div>
@@ -27,6 +27,40 @@
             });
         });
     });
+    // Insert text
+    fetch('content/home-content.html')
+      .then(res => res.text())
+      .then(html => {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+        // Hero text
+        const heroText = temp.querySelector('#hero-text');
+        if (heroText) {
+          document.getElementById('hero-content').innerHTML = heroText.outerHTML;
+        }
+        // Mission text
+        const missionText = temp.querySelector('#mission-text');
+        if (missionText) {
+          const missionPlaceholder = document.getElementById('mission-content');
+          if (missionPlaceholder) missionPlaceholder.innerHTML = missionText.outerHTML;
+        }
+      });
   </script>
+  <div class="home-banner">
+    <img src="assets/images/background-lines.svg" alt="" class="background-svg" />
+    <div class="hero">
+      <h1>Empowering the next generation of <span class="gradient-text">changemakers</span></h1>
+      <div id="hero-content"></div>
+      <button class="button">
+        <a href="about-programs.html">Learn More</a>
+      </button>
+    </div>
+  </div>
+  <div class="mission-block">
+    <div class="mission-text" id="mission-content"></div>
+    <button class="button">
+      <a href="about-mission.html">Learn more about our mission</a>
+    </button>
+  </div>
 </body>
 </html>
