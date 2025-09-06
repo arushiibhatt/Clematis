@@ -44,6 +44,61 @@
           const missionPlaceholder = document.getElementById('mission-content');
           if (missionPlaceholder) missionPlaceholder.innerHTML = missionText.outerHTML;
         }
+
+        // Community text
+        const commText = temp.querySelector('#community-text');
+        if (commText) {
+          document.getElementById('community-content').innerHTML = commText.outerHTML;
+        }
+
+        // Research text
+        const resText = temp.querySelector('#research-text');
+        if (resText) {
+          document.getElementById('research-content').innerHTML = resText.outerHTML;
+        }
+
+        // Research project text
+        const resProjText = temp.querySelector('#research-project-text');
+        if (resProjText) {
+          document.getElementById('project-content').innerHTML = resProjText.outerHTML;
+        }
+
+        // Research classrooms text
+        const resClassText = temp.querySelector('#research-classrooms-text');
+        if (resClassText) {
+          document.getElementById('classrooms-content').innerHTML = resClassText.outerHTML;
+        }
+
+        // Research competition text
+        const resCompText = temp.querySelector('#research-competition-text');
+        if (resCompText) {
+          document.getElementById('competition-content').innerHTML = resCompText.outerHTML;
+        }
+
+        // Leadership text
+        const leadText = temp.querySelector('#leadership-text');
+        if (leadText) {
+          document.getElementById('leadership-content').innerHTML = leadText.outerHTML;
+        }
+
+        // Leadership mentorship text
+        const leadMentText = temp.querySelector('#leadership-mentorship-text');
+        if (leadMentText) {
+          document.getElementById('mentorship-content').innerHTML = leadMentText.outerHTML;
+        }
+
+        // Leadership development text
+        const leadDevText = temp.querySelector('#leadership-development-text');
+        if (leadDevText) {
+          document.getElementById('development-content').innerHTML = leadDevText.outerHTML;
+        }
+
+        // Leadership financial text
+        const leadFinText = temp.querySelector('#leadership-financial-text');
+        if (leadFinText) {
+          document.getElementById('financial-content').innerHTML = leadFinText.outerHTML;
+        }
+
       });
   </script>
   <div class="home-banner">
@@ -59,8 +114,93 @@
   <div class="mission-block">
     <div class="mission-text" id="mission-content"></div>
     <button class="button">
-      <a href="about-mission.html">Learn more about our mission</a>
+      <a href="about-mission.html">Learn more about our mission <span class="button-arrow">&gt;</span></a>
     </button>
   </div>
+  <div class="banner">
+    <div class="banner-text">
+      <a href="#research">Research</a>
+      <a href="#leadership">Leadership</a>
+    </div>
+  </div>
+  <div class="map-block">
+    <div class="map-header">We are an inclusive community!</div>
+    <div class="community-text" id="community-content"></div>
+    <img src="assets/images/world-map.svg" alt="" class="map-svg" />
+    <div class="map-numbers">
+      <div class="number-text">
+        <span class="gradient-30">30+</span>
+        <span class="map-text">Countries</span>
+      </div>
+      <div class="number-text">
+        <span class="gradient-6">6</span>
+        <span class="map-text">Continents</span>
+      </div>
+      <div class="number-text">
+        <span class="gradient-120">120+</span>
+        <span class="map-text">Institutions</span>
+      </div>
+    </div>
+    <div class="explore-button">
+      <span class="explore-text">Explore our<br>community</span>
+      <a href="community.html" class="explore-link">
+        <img src="assets/images/compass-button.svg" alt="Explore Community" class="explore-image" />
+      </a>
+    </div>
+  </div>
+  <div class="research-block" id="research">
+    <div class="section-header">Empowering Research</div>
+    <div id="research-content" class="section-text"></div>
+    <div class="research-sections">
+      <div class="research-section">
+        <div class="icons">
+          <img src="assets/images/uoft.svg" alt="" class="uoft-logo" />
+          <img src="assets/images/oxford.svg" alt="" class="oxford-logo" />
+        </div>
+        <div class="research-header">Hands-on Research Project</div>
+        <div id="project-content" class="research-description"></div>
+        <div class="research-description"><u>Learn More</u></div>
+      </div>
+      <div class="research-section">
+        <div class="research-header">Integrating Research into Classrooms</div>
+        <div id="classrooms-content" class="research-description"></div>
+        <div class="research-description"><u>For Educators</u></div>
+      </div>
+      <div class="research-section">
+        <div class="research-header">Research Competition</div>
+        <div id="competition-content" class="research-description"></div>
+        <div class="research-description"><u>Aspiring Neuroscientists</u></div>
+    </div>
+    </div>
+  </div>
+  <div class="leadership-block" id="leadership">
+    <div class="section-header">Empowering Leadership</div>
+    <div id="leadership-content" class="section-text"></div>
+    <div class="research-sections">
+      <div class="research-section">
+        <div class="research-header">Mentorship</div>
+        <div id="mentorship-content" class="research-description"></div>
+        <div class="research-description"><u>Meet Our Advisors</u></div>
+      </div>
+      <div class="research-section">
+        <div class="research-header">Leadership Development</div>
+        <div id="development-content" class="research-description"></div>
+        <div class="research-description"><u>About Program</u></div>
+      </div>
+      <div class="research-section">
+        <div class="research-header">Financial Support</div>
+        <div id="financial-content" class="research-description"></div>
+        <div class="research-description"><u>About Catalyst Grant</u></div>
+    </div>
+  </div>
+  </div>
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('components/footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
 </body>
 </html>
