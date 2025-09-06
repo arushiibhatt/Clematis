@@ -5,22 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Mission | Clematis</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages/about-mission.css" />
 </head>
 <body>
+  <!-- Navbar -->
   <div id="navbar-placeholder"></div>
-  <main>
-    <!-- Page-specific content goes here -->
-  </main>
-  <div id="footer-placeholder"></div>
   <script>
     fetch('components/navbar.html')
       .then(res => res.text())
-      .then(html => {
-        document.getElementById('navbar-placeholder').innerHTML = html;
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+
+        // Attach dropdown toggle logic AFTER navbar is injected
+        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+          toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.closest('.dropdown');
+            parent.classList.toggle('open');
+            document.querySelectorAll('.dropdown').forEach(function(drop) {
+              if (drop !== parent) drop.classList.remove('open');
+            });
+          });
+        });
       });
+    // Insert text
+      fetch('content/about-mission-content.html')
+      .then(res => res.text())
+      .then(html => {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+
+        // Mission text
+        const miss1Text = temp.querySelector('#mission-p1');
+        if (miss1Text) {
+          document.getElementById('mission-p1-content').innerHTML = miss1Text.outerHTML;
+        }
+
+        const miss2Text = temp.querySelector('#mission-p2');
+        if (miss2Text) {
+          document.getElementById('mission-p2-content').innerHTML = miss2Text.outerHTML;
+        }
+
+        // Story text
+        const stor1Text = temp.querySelector('#story-p1');
+        if (stor1Text) {
+          document.getElementById('story-p1-content').innerHTML = stor1Text.outerHTML;
+        }
+
+        const stor2Text = temp.querySelector('#story-p2');
+        if (stor2Text) {
+          document.getElementById('story-p2-content').innerHTML = stor2Text.outerHTML;
+        }
+      });
+  </script>
+
+  <main>
+    <div class="page-header">
+        <h1 class="h1">Mission and Story</h1>
+    </div>
+    <hr class="section-divider">
+
+    <div class="mission-story-container">
+        <!-- Mission Section -->
+        <section class="content-section mission-section">
+            <div class="section-header">
+                <h2>Our Mission</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p id="mission-p1-content"></p>
+                    <p id="mission-p2-content"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="content-section story-section">
+            <div class="section-header">
+                <h2>Our Story</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p id="story-p1-content"></p>
+                    <p id="story-p2-content"></p>
+                </div>
+            </div>
+        </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+  <script>
     fetch('components/footer.html')
       .then(res => res.text())
       .then(html => {

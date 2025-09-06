@@ -5,22 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Programs | Clematis</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages/about-programs.css" />
 </head>
 <body>
   <div id="navbar-placeholder"></div>
-  <main>
-    <!-- Page-specific content goes here -->
-  </main>
-  <div id="footer-placeholder"></div>
   <script>
     fetch('components/navbar.html')
       .then(res => res.text())
       .then(html => {
         document.getElementById('navbar-placeholder').innerHTML = html;
+        // Attach dropdown toggle logic AFTER navbar is injected
+        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+          toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.closest('.dropdown');
+            parent.classList.toggle('open');
+            document.querySelectorAll('.dropdown').forEach(function(drop) {
+              if (drop !== parent) drop.classList.remove('open');
+            });
+          });
+        });
       });
+      // Insert text
+      fetch('content/about-programs-content.html')
+      .then(res => res.text())
+      .then(html => {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+
+        // Catalyst Program Text
+        const cat1Text = temp.querySelector('#catalyst-p1');
+        if (cat1Text) {
+          document.getElementById('catalyst-p1-content').innerHTML = cat1Text.outerHTML;
+        }
+
+        const cat2Text = temp.querySelector('#catalyst-p2');
+        if (cat2Text) {
+          document.getElementById('catalyst-p2-content').innerHTML = cat2Text.outerHTML;
+        }
+
+        // Research Projects Text
+        const res1Text = temp.querySelector('#research-p1');
+        if (res1Text) {
+          document.getElementById('research-p1-content').innerHTML = res1Text.outerHTML;
+        }
+
+        const res2Text = temp.querySelector('#research-p2');
+        if (res2Text) {
+          document.getElementById('research-p2-content').innerHTML = res2Text.outerHTML;
+        }
+
+        // Fly Connectome Text
+        const fly1Text = temp.querySelector('#fly-p1');
+        if (fly1Text) {
+          document.getElementById('fly-p1-content').innerHTML = fly1Text.outerHTML;
+        }
+
+        const fly2Text = temp.querySelector('#fly-p2');
+        if (fly2Text) {
+          document.getElementById('fly-p2-content').innerHTML = fly2Text.outerHTML;
+        }
+
+        // Thinking like a Physicist Text
+        const physText = temp.querySelector('#physicist-text');
+        if (physText) {
+          document.getElementById('physicist-content').innerHTML = physText.outerHTML;
+        }
+      });
+  </script>
+  <main>
+    <div class="page-header">
+        <h1 class="h1">Flagship Programs</h1>
+    </div>
+    <hr class="section-divider">
+
+     <!-- Catalyst Scholars -->
+    <section class="program-block">
+      <div class="program-text">
+        <h2 class="program-title gradient-text">Clematis Catalyst Scholars Program</h2>
+        <p id="catalyst-p1-content"></p>
+        
+        <div class="callout">
+          <h3>Our Global Institutions</h3>
+          <ul>
+            <li>Europe — University of Oxford, University of Cambridge</li>
+            <li>North America — University of Toronto, Harvard University, UC Berkeley, Princeton University</li>
+            <li>Africa — Covenant University</li>
+            <li>Worldwide — other partner institutions</li>
+          </ul>
+        </div>
+
+        <p id="catalyst-p2-content"></p>
+        <a href="#" class="program-btn">Apply Now</a>
+      </div>
+      <div class="program-img">
+        <img src="assets/images/brain-temp-image.jpg" alt="Catalyst Scholars">
+      </div>
+    </section>
+
+    <!-- Research Projects -->
+    <section class="program-block reverse">
+      <div class="program-text">
+        <h2 class="program-title gradient-text">Hands-on Research Projects</h2>
+        <p id="research-p1-content"></p>
+        <p id="research-p2-content"></p>
+        <a href="#" class="program-btn">Learn More</a>
+      </div>
+      <div class="program-img">
+        <img src="assets/images/brain-temp-image.jpg" alt="Research Projects">
+      </div>
+    </section>
+
+    <!-- Fly Connectome -->
+    <section class="program-block">
+      <div class="program-text">
+        <h2 class="program-title gradient-text">2025 Fly Connectome Research Competition</h2>
+        <p id="fly-p1-content"></p>
+        <p id="fly-p2-content"></p>
+        <a href="#" class="program-btn">Learn More</a>
+      </div>
+      <div class="program-img">
+        <img src="assets/images/brain-temp-image.jpg" alt="Fly Connectome">
+      </div>
+    </section>
+
+    <!-- Think Like a Physicist -->
+    <section class="program-block reverse">
+      <div class="program-text">
+        <h2 class="program-title gradient-text">Think Like a Physicist</h2>
+        <p id="physicist-content"></p>
+        <a href="#" class="program-btn">Learn More</a>
+      </div>
+      <div class="program-img">
+        <img src="assets/images/brain-temp-image.jpg" alt="Physics Program">
+      </div>
+    </section>
+
+  </main>
+  <div id="footer-placeholder"></div>
+  <script>
     fetch('components/footer.html')
       .then(res => res.text())
       .then(html => {

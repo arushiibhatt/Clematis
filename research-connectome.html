@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025 Fly Connectome | Clematis</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+  fetch('components/navbar.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('navbar-placeholder').innerHTML = html;
+
+      // Attach dropdown toggle logic AFTER navbar is injected
+      document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          const parent = this.closest('.dropdown');
+          parent.classList.toggle('open');
+          document.querySelectorAll('.dropdown').forEach(function(drop) {
+            if (drop !== parent) drop.classList.remove('open');
+          });
+        });
+      });
+    });
+</script>
+  
+  <main>
+    <!-- Page-specific content goes here -->
+  </main>
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('components/footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+</body>
+</html>

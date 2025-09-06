@@ -1,0 +1,128 @@
+/* Main Container */
+.mission-story-container {
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 5rem;
+}
+
+.section-header {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.text-content {
+    max-width: 100%;
+    line-height: 1.8;
+}
+
+.text-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-primary, #333);
+    margin-bottom: 2rem;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.text-content strong {
+    font-weight: 600;
+    color: var(--accent-blue, #2196F3);
+}
+
+/* Section-specific styling */
+.mission-section {
+    background-color: var(--background, #ffffff);
+}
+
+.story-section {
+    background-color: var(--very-light-grey, #faf9f7);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.05);
+}
+
+.story-section .section-header h2 {
+    color: var(--text-primary);
+}
+
+.story-section .section-divider {
+    background: linear-gradient(90deg, transparent 0%, var(--accent-pink, #E91E63) 50%, transparent 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mission-story-container {
+        max-width: 90%;
+        padding: 2rem 0;
+    }
+    
+    .page-header .h1 {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .text-content p {
+        font-size: 1rem;
+    }
+    
+    .content-section {
+        margin-bottom: 3rem;
+    }
+    
+    .story-section {
+        padding: 2rem;
+    }
+    
+    .section-divider {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-story-container {
+        max-width: 95%;
+    }
+    
+    .page-header {
+        padding: 2rem 1rem;
+    }
+    
+    .page-header .h1 {
+        font-size: 1.75rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.75rem;
+    }
+    
+    .story-section {
+        padding: 1.5rem;
+    }
+    
+    .section-divider {
+        width: 60%;
+    }
+}

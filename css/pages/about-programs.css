@@ -1,0 +1,99 @@
+.programs-page {
+  padding: 8% 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 12%;
+}
+
+/* Each section has balanced spacing */
+.program-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6% 8%;
+  gap: 8%;
+  border-radius: 16px;
+}
+
+/* Alternating layout */
+.program-block:nth-child(even) {
+  flex-direction: row-reverse;
+  background: linear-gradient(90deg, var(--very-light-grey) 0%, var(--light-grey) 100%);
+}
+
+.program-block:nth-child(odd) {
+  background: linear-gradient(90deg, var(--light-grey) 0%, var(--very-light-grey) 100%);
+}
+
+
+.program-text {
+  flex: 1 1 55%;
+  padding-left: 2%; /* pushes text away from the edge */
+}
+
+.program-title {
+  font-family: "Sora", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--accent-aqua), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.program-text p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.program-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--accent-aqua);
+  color: #111;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+.program-btn:hover {
+  background-color: var(--accent-blue);
+  color: var(--text-secondary);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.program-img img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
+}
+.program-img img:hover {
+  transform: rotate(-2deg) scale(1.03);
+}
+
+/* Callout box for Catalyst */
+.callout {
+  margin: 4rem 0;
+  padding: 2.5rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-aqua));
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.callout h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: "Sora", sans-serif;
+}
+.callout ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+.callout li {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}

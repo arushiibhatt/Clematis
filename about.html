@@ -3,26 +3,217 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Clematis</title>
+  <title>About Mission | Clematis</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages/about.css" />
 </head>
 <body>
+  <!-- Navbar -->
   <div id="navbar-placeholder"></div>
-  <main>
-    <!-- Page-specific content goes here -->
-  </main>
-  <div id="footer-placeholder"></div>
   <script>
-    // Navbar include
     fetch('components/navbar.html')
       .then(res => res.text())
-      .then(html => {
-        document.getElementById('navbar-placeholder').innerHTML = html;
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+
+        // Attach dropdown toggle logic AFTER navbar is injected
+        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+          toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.closest('.dropdown');
+            parent.classList.toggle('open');
+            document.querySelectorAll('.dropdown').forEach(function(drop) {
+              if (drop !== parent) drop.classList.remove('open');
+            });
+          });
+        });
       });
-    // Footer include
+      // Insert text
+      fetch('content/about-content.html')
+      .then(res => res.text())
+      .then(html => {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+
+        // Mission text
+        const missText = temp.querySelector('#mission-text');
+        if (missText) {
+          document.getElementById('mission-content').innerHTML = missText.outerHTML;
+        }
+
+        // Explore text
+        const expText = temp.querySelector('#explore-text');
+        if (expText) {
+          document.getElementById('explore-content').innerHTML = expText.outerHTML;
+        }
+
+        // Join text
+        const joinText = temp.querySelector('#join-text');
+        if (joinText) {
+          document.getElementById('join-content').innerHTML = joinText.outerHTML;
+        }
+
+        // Community text
+        const commText = temp.querySelector('#community-text');
+        if (commText) {
+          document.getElementById('community-content').innerHTML = commText.outerHTML;
+        }
+
+        // Impact text
+        const impText = temp.querySelector('#impact-text');
+        if (impText) {
+          document.getElementById('impact-content').innerHTML = impText.outerHTML;
+        }
+
+        // Pedagogical experts text
+        const pedText = temp.querySelector('#pedagogical-text');
+        if (pedText) {
+          document.getElementById('pedagogical-content').innerHTML = pedText.outerHTML;
+        }
+
+        // Research experts text
+        const resText = temp.querySelector('#research-text');
+        if (resText) {
+          document.getElementById('research-content').innerHTML = resText.outerHTML;
+        }
+
+        // Students text
+        const studText = temp.querySelector('#students-text');
+        if (studText) {
+          document.getElementById('students-content').innerHTML = studText.outerHTML;
+        }
+
+        // Lecturers and Teachers text
+        const teachText = temp.querySelector('#teachers-text');
+        if (teachText) {
+          document.getElementById('teachers-content').innerHTML = teachText.outerHTML;
+        }
+
+        // Founder text
+        const founText = temp.querySelector('#founder-text');
+        if (founText) {
+          document.getElementById('founder-content').innerHTML = founText.outerHTML;
+        }
+
+        // Team text
+        const teamText = temp.querySelector('#team-text');
+        if (teamText) {
+          document.getElementById('team-content').innerHTML = teamText.outerHTML;
+        }
+
+      });
+  </script>
+
+  <main>
+    <div class="page-header">
+      <h2 class="mission-text" id="mission-content"></h2>
+    </div>
+    <hr>
+    <div class="about-content">
+      <div class="section">
+        <div class="section-content">
+          <h3>Explore what drives us</h3>
+          <img src="assets/images/brain-temp-image.jpg" class="image"/>
+        </div>
+        <div class="section-text">
+            <div class="explore-text" id="explore-content"></div>
+            <p><br><u>Read our story</u></p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-text">
+            <div class="join-text" id="join-content"></div>
+            <p><br><u>Learn about our flagship programs</u></p>
+        </div>
+        <div class="section-content">
+          <h3>Join our initiatives</h3>
+          <img src="assets/images/brain-temp-image.jpg" class="image"/>
+        </div>
+      </div>
+    </div>
+    <div class="community-block">
+      <div class="text-block">
+        <h3>Our Community</h3>
+        <div class="section-text" id="community-content"></div>
+      </div>
+      <div class="stats-block">
+        <div class="stats-section">
+          <span class="stats-num">30+</span>
+          <span class="section-text">countries</span>
+        </div>
+        <div class="stats-section">
+          <span class="stats-num">6</span>
+          <span class="section-text">continents</span>
+        </div>
+        <div class="stats-section">
+          <span class="stats-num">120+</span>
+          <span class="section-text">institutions</span>
+        </div>
+      </div>
+    </div>
+    <div class="impact-block">
+      <div class="impact-block-content">
+        <div class="impact-text">
+          <h3>Our Impact</h3>
+          <div class="section-text" id="impact-content"></div>
+          <p><br><u>More about our impact</u></p>
+        </div>
+        <img src="assets/images/brain-temp-image.jpg" class="impact-image">
+      </div>
+    </div>
+    <div class="stakeholders-block">
+      <h3>Our Stakeholders</h3>
+      <div class="stakeholders-sections">
+        <div class="stakeholders-section">
+          <h3>Pedagogical Experts</h3>
+          <div class="section-text" id="pedagogical-content"></div>
+        </div>
+        <div class="stakeholders-section">
+          <h3>Research Experts</h3>
+          <div class="section-text" id="research-content"></div>
+        </div>
+      </div>
+      <div class="stakeholders-sections">
+        <div class="stakeholders-section">
+          <h3>Students</h3>
+          <div class="section-text" id="students-content"></div>
+        </div>
+        <div class="stakeholders-section">
+          <h3>Lecturers and Teachers</h3>
+          <div class="section-text" id="teachers-content"></div>
+        </div>
+      </div>
+      <button class="button">
+        <a href="about-partners.html">More about our partners</a>
+      </button>
+    </div>
+    <div class="founder-block">
+      <div class="impact-block-content">
+        <div class="impact-text">
+          <h3>About Our Founder</h3>
+          <div class="section-text" id="founder-content"></div>
+          <p><br><u>Read his story</u></p>
+        </div>
+        <img src="assets/images/person-temp.jpg" class="impact-image">
+      </div>
+    </div>
+    <div class="team-block">
+      <div class="impact-block-content">
+        <div class="impact-text">
+          <h3>About Our Team</h3>
+          <div class="section-text" id="team-content"></div>
+          <p><br><u>Meet our team</u></p>
+        </div>
+        <img src="assets/images/country-names.png" class="impact-image">
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+  <script>
     fetch('components/footer.html')
       .then(res => res.text())
       .then(html => {
